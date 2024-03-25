@@ -45,11 +45,18 @@ namespace NovaPosta2024
             inputTtnField.SendKeys(ttnNumber);
             inputTtnField.Submit();
 
-            wait.Until(ExpectedConditions.UrlToBe("https://tracking.novaposhta.ua/#/uk/chat/messages"));
+            wait.Until(ExpectedConditions.UrlToBe("https://tracking.novaposhta.ua/#/uk"));
+
+            IWebElement inputParcelNumber = driver.FindElement(By.XPath("//*[@id=\"en\"]"));
+            inputParcelNumber.SendKeys(ttnNumber);
+            inputParcelNumber.Submit(); 
+
             IWebElement okButton = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"chat\"]/div[2]/button")));
             okButton.Click();
+
             IWebElement status = driver.FindElement(By.XPath("//*[@id=\"chat\"]/header/div[2]/div[2]/div[2]"));
             string parcelStatus = status.GetAttribute("innerText");
+
             Assert.That(parcelStatus, Is.EqualTo("Отримана"));
 
         }
