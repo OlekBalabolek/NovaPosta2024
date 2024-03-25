@@ -52,15 +52,6 @@ namespace NovaPosta2024
             string parcelStatus = status.GetAttribute("innerText");
             Assert.That(parcelStatus, Is.EqualTo("Отримана"));
 
-
-
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(3));
-            //inputTtnField = wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"cargo_number\"]")));
-
-
-
-            /// IWebElement inputSend = driver.FindElement(By.XPath("//*[@id=\"top_block\"]/div[1]/div/div[2]/form/input[2]")));
-            ///inputSend.Click();
         }
 
 
